@@ -47,6 +47,23 @@ public class Main {
             System.out.println(coba);
             
             EllipticCurve curve = new EllipticCurve(EllipticCurve.DEFAULT_A,EllipticCurve.DEFAULT_B,EllipticCurve.DEFAULT_P);
+            curve.generateBasePoint();
+            int privateKey = new Random().nextInt((int) curve.getP());
+            while (privateKey < 0 || privateKey > curve.getP()) {
+                    privateKey += curve.getP();
+            }
+
+            if (privateKey == 0) privateKey = (int) (curve.getP()/2);
+            
+            long[] publicKey = curve.getPublicKey(privateKey);
+            
+            System.out.println(privateKey);
+            System.out.println(publicKey[0] + " " + publicKey[1]);
+            
+            
+            System.out.println("Signing...");
+            int k = new Random().nextInt();
+            long R = curve.multiplyPoint(k, curve.getBasePoint())[0];
 	}
 
 }
