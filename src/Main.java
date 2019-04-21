@@ -34,7 +34,7 @@ import util.Prime;
  */
 
 /**
- * @author nashir
+ * @author intan
  *
  */
 public class Main {
