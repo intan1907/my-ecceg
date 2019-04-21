@@ -45,6 +45,8 @@ public class Main {
             SHA1 sha_test = new SHA1();
             String coba = sha_test.encodeHex("hello world");
             System.out.println(coba);
+            
+            EllipticCurve curve = new EllipticCurve(EllipticCurve.DEFAULT_A,EllipticCurve.DEFAULT_B,EllipticCurve.DEFAULT_P);
 	}
 
 }
